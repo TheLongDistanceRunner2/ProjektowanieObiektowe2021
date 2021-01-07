@@ -1,0 +1,89 @@
+@startuml
+
+    (*) -down-> "Przyjazd na stację"
+
+        if "wybór czynności:" then
+            -right-> "Zakup rzetonu do odkurzania samochodu"
+            -down-> "Płatność przy kasie"
+        
+        else 
+            -down-> "Mycie samochodu"
+            -down-> "Płatność przy myjni"
+
+            if "wybór rodzaju płatności:" then
+                -down-> "Kartą"
+                -down-> "Autoryzacja płatności"
+                -down-> "Wydruk potwierdzenia"
+                -down-> "Wydruk rachunku"
+            else    
+                -right-> "Gotówką"
+                -down-> "Wydruk rachunku"
+            endif
+
+            -down-> "Umycie samochodu"
+            -down-> (*)
+        else 
+            -left-> "Tankowanie samochodu"
+
+            if "wybór paliwa: " then
+                -left-> "Benzyna"
+                -down-> "Zatankowanie"
+            else
+                -down-> "Diesel"
+                -down-> "Zatankowanie"
+            else
+                -right-> "LPG"
+                -down-> "Zatankowanie"
+            endif           
+
+            -down-> "Punkty"
+        endif
+
+        if "czy zbieramy punkty?" then
+            -right-> "Tak"
+            -down-> "Nabicie punktów na kartę"
+            -down-> "Płatność przy kasie"
+        else
+            -down-> "nie"
+
+            if "czy chcemy założyć kartę?" then
+                -down-> "Tak, chcę"
+                -down-> "Założenie karty"
+                -down-> "Nabicie punktów na nową kartę"
+                -down-> "Płatność przy kasie"
+            else 
+                -right-> "Nie, dziękuję"
+                -down-> "Płatność przy kasie"
+            endif
+
+        endif        
+
+        if "wybór formy płatności:" then
+            -down-> "Karta"
+            -down-> "Autoryzacja"
+            -down-> "Potwierdzenie"
+            -down-> "Rachunek"
+        else    
+            -right-> "Gotówka"
+            -down-> "Rachunek"
+        endif
+
+        if "wybór rachunku:" then
+            -left-> "Paragon"
+            --> "Koniec transakcji"
+        else
+            -right-> Faktura
+            --> "Koniec transakcji"
+        endif
+
+        if "za co zaplacono?"
+            -left-> "Za tankowanie"
+            -down-> (*)
+        else
+            -right-> "Za odkurzanie"
+            -down-> "Wykorzystanie rzetonu"
+            -down-> "Odkurzenie samochodu"
+            -down-> (*)
+        endif
+
+@enduml
