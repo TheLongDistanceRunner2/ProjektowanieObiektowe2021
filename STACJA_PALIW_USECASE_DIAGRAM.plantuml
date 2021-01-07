@@ -1,0 +1,60 @@
+@startuml
+
+actor Klient as K
+actor Sprzedawca as S
+actor Bank as B
+
+rectangle Stacja_Paliw {
+    usecase "Tankowanie" as tankowanie
+    usecase "Benzyna" as benzyna
+    usecase "Diesel" as diesel 
+    usecase "LPG" as lpg
+    usecase "Myjnia" as myjnia
+    usecase "Odkurzacz" as odkurzacz
+    usecase "Płatność" as platnosc
+    usecase "Karta" as karta
+    usecase "Autoryzacja" as autoryzacja
+    usecase "Potwierdzenie" as potwierdzenie
+    usecase "Gotówka" as gotowka
+    usecase "Rzeton" as rzeton
+    usecase "Rachunek" as rachunek
+    usecase "Paragon" as paragon 
+    usecase "Faktura" as faktura
+}
+
+K -- tankowanie
+K -- myjnia
+K -- odkurzacz
+
+S -- platnosc
+
+B -- autoryzacja
+
+'benzyna, diesel, lpg to rodzaje tankowania: '
+benzyna --|> tankowanie : <<extends>>
+diesel --|> tankowanie : <<extends>>
+lpg --|> tankowanie : <<extends>>
+
+'tankowanie, myjnia i odkurzacz zawierają płatność: '
+platnosc --> tankowanie <<includes>>
+platnosc --> myjnia <<includes>>
+platnosc --> odkurzacz <<includes>>
+
+'karta, gotowka i rzeton to rodzaje platnosci:'
+karta --|> platnosc <<extends>>
+gotowka --|> platnosc <<extends>>
+rzeton --|> platnosc <<extends>>
+
+'karta zawiera autoryzacje: '
+autoryzacja --> karta <<includes>>
+'autoryzacja zawiera potwierdzenie: '
+potwierdzenie --> autoryzacja <<includes>>
+
+'platnosc zawiera rachunek: '
+rachunek --> platnosc <<includes>>
+
+'paragon i faktura to rodzaje rachunku: '
+paragon --|> rachunek : <<extends>>
+faktura --|> rachunek : <<extends>>
+
+@enduml
