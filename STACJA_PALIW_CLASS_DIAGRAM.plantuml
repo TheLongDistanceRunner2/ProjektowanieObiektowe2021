@@ -1,0 +1,162 @@
+@startuml
+
+class Klient {
+    czyMaKarteStalegoKlienta
+    idKarty
+    kwotaDoZaplaty
+
+    Klient()
+
+    getCzyMaKarteStalegoKlienta()
+    getIdKarty()
+    getKwotaDoZaplaty()
+    setCzyMaKarteStalegoKlienta(flaga)
+    setIdKarty(idKarty)
+    setKwotaDoZaplaty(kwotaDoZaplaty)
+}
+
+abstract class DystrybutorPaliwa {
+    kursPaliwa
+    kwotaDoZaplaty
+    iloscPaliwaDoZatankowania
+
+    DystrybutorPaliwa(kursPaliwa)
+    
+    tankuj(iloscPaliwa)
+}
+
+class DystrybutorBenzyny {
+    DystrybutorBenzyny(kursPaliwa)
+    
+    tankuj(iloscPaliwa)
+
+    getKursPaliwa()
+    getKwotaDoZaplaty()
+    getIloscPaliwaDoZatankowania()
+    setKursPaliwa(kursPaliwa)
+    setKwotaDoZaplaty(kwotaDoZaplaty)
+    setIloscPaliwaDoZatankowiania(iloscPaliwaDoZatankowania)
+}
+
+class DystrybutorDiesla {
+    DystrybutorDiesla(kursPaliwa)
+    
+    tankuj(iloscPaliwa)
+
+    getKursPaliwa()
+    getKwotaDoZaplaty()
+    getIloscPaliwaDoZatankowania()
+    setKursPaliwa(kursPaliwa)
+    setKwotaDoZaplaty(kwotaDoZaplaty)
+    setIloscPaliwaDoZatankowiania(iloscPaliwaDoZatankowania)
+}
+
+class DystrybutorLPG {
+    DystrybutorLPG(kursPaliwa)
+    
+    tankuj(iloscPaliwa)
+
+    getKursPaliwa()
+    getKwotaDoZaplaty()
+    getIloscPaliwaDoZatankowania()
+    setKursPaliwa(kursPaliwa)
+    setKwotaDoZaplaty(kwotaDoZaplaty)
+    setIloscPaliwaDoZatankowiania(iloscPaliwaDoZatankowania)
+}
+
+class Myjnia {
+    kwotaDoZaplaty
+    List<Integer> programy
+
+    Myjnia()
+
+    umyj(program)
+
+    getKwotaDoZaplaty()
+    getProgramy()
+    setKwotaDoZaplaty()
+    setProgramy()
+}
+
+class Odkurzacz {
+    kwotaDoZaplaty
+
+    Odkurzacz()
+
+    odkurz(kwotaDoZaplaty)
+
+    getKwotaDoZaplaty()
+    setKwotaDoZaplaty()
+}
+
+abstract class Platnosc {
+    klient
+    kasjer
+    kwotaDoZaplaty
+    rodzajPlatnosci
+    rodzajRachunku
+    autoryzacja
+
+    Platnosc()
+    Platnosc()
+
+    zaplac()
+
+    getKwotaDoZaplaty()
+    getRodzajPlatnosci()
+    getRodzajRachunku()
+    setKwotaDoZaplaty(kwotaDoZaplaty)
+    setRozdajPlatnosci(rodzajPlatnosci)
+    setRodzajRachunku(rodzajRachunku)
+}
+
+class Gotowka {
+    Gotowka(klient, kasjer, kwotaDoZaplaty, rodzajPlatnosci, rodzajRachunku)
+} 
+
+class Rzeton {
+    Rzeton(klient, kasjer, kwotaDoZaplaty, rodzajPlatnosci, rodzajRachunku)
+} 
+
+class Karta {
+    Karta(klient, kasjer, kwotaDoZaplaty, rodzajPlatnosci, rodzajRachunku)
+}
+
+class Autoryzacja {
+    potwierdzenie
+
+    Autoryzacja()
+
+    getPotwierdzenie()
+    setPotwierdzenie()
+}
+
+class Potwierdzenie {
+    czyPotwierdzono
+
+    Potwierdzenie()
+
+    getCzyPotwierdzono()
+    setCzyPotwierdzono()
+}
+
+class Paragon {
+    kwota
+
+    Paragon(kwota)
+
+    getKwota()
+    setKwota()
+}
+
+class Faktura {
+    kwota
+
+    Faktura(kwota)
+
+    getKwota()
+    setKwota()
+}
+
+
+@enduml
