@@ -19,9 +19,8 @@ abstract class DystrybutorPaliwa {
     kursPaliwa
     kwotaDoZaplaty
     iloscPaliwaDoZatankowania
+    platnosc
 
-    DystrybutorPaliwa(kursPaliwa)
-    
     tankuj(iloscPaliwa)
 }
 
@@ -66,7 +65,7 @@ class DystrybutorLPG {
 
 class Myjnia {
     kwotaDoZaplaty
-    List<Integer> programy
+    List<String> programy
 
     Myjnia()
 
@@ -97,9 +96,6 @@ abstract class Platnosc {
     rodzajRachunku
     autoryzacja
 
-    Platnosc()
-    Platnosc()
-
     zaplac()
 
     getKwotaDoZaplaty()
@@ -127,6 +123,8 @@ class Autoryzacja {
 
     Autoryzacja()
 
+    autoryzuj()
+
     getPotwierdzenie()
     setPotwierdzenie()
 }
@@ -136,8 +134,14 @@ class Potwierdzenie {
 
     Potwierdzenie()
 
+    potwierdz()
+
     getCzyPotwierdzono()
     setCzyPotwierdzono()
+}
+
+abstract class Rachunek {
+
 }
 
 class Paragon {
@@ -158,5 +162,53 @@ class Faktura {
     setKwota()
 }
 
+class Kasjer {
+    id
+
+    Kasjer()
+
+    przyjmijPlatnosc()
+
+    getId()
+    setId(id)
+}
+
+class Bank {
+    id
+
+    Bank()
+
+    potwierdzPłatnosc()
+
+    getId()
+    setId(id)
+}
+
+Klient -- DystrybutorPaliwa
+Klient -- Myjnia
+Klient -- Odkurzacz
+
+DystrybutorPaliwa <|-- DystrybutorBenzyny
+DystrybutorPaliwa <|-- DystrybutorDiesla
+DystrybutorPaliwa <|-- DystrybutorLPG
+
+DystrybutorPaliwa *-- Platnosc
+Myjnia *-- Platnosc
+Odkurzacz *-- Platnosc
+
+Platnosc -- Kasjer
+
+Platnosc <|-- Karta
+Platnosc <|-- Gotowka
+Platnosc <|-- Rzeton
+Platnosc *-- Rachunek
+
+Rachunek <|-- Paragon
+Rachunek <|-- Faktura
+
+Karta *-- Autoryzacja
+Autoryzacja *-- Potwierdzenie
+
+Autoryzacja -- Bank
 
 @enduml
