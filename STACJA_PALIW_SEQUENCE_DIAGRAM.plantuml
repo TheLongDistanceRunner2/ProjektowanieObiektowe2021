@@ -1,0 +1,57 @@
+@startuml
+
+actor Klient
+note left DystrybutorPaliwa: Scenariusz korzystania z Dystrybutora Paliwa
+
+activate DystrybutorPaliwa
+DystrybutorPaliwa -> Platnosc : tankuj()
+
+    activate Platnosc
+        Platnosc -> Rachunek : zaplac()
+    
+        activate Rachunek
+        Rachunek -> Rachunek : wyborRachunku()
+    
+        return zaplac()
+    
+    return tankuj()
+
+deactivate DystrybutorPaliwa
+deactivate Rachunek
+deactivate Platnosc
+
+activate Myjnia
+Myjnia -> Platnosc : tankuj()
+
+    activate Platnosc
+        Platnosc -> Rachunek : zaplac()
+    
+        activate Rachunek
+        Rachunek -> Rachunek : wyborRachunku()
+    
+        return zaplac()
+    
+    return umyj()
+
+deactivate Myjnia
+deactivate Rachunek
+deactivate Platnosc
+
+activate Odkurzacz
+Odkurzacz -> Platnosc : tankuj()
+
+    activate Platnosc
+        Platnosc -> Rachunek : zaplac()
+    
+        activate Rachunek
+        Rachunek -> Rachunek : wyborRachunku()
+    
+        return zaplac()
+    
+    return odkurz()
+
+deactivate Odkurzacz
+deactivate Rachunek
+deactivate Platnosc
+
+@enduml

@@ -141,7 +141,9 @@ class Potwierdzenie {
 }
 
 abstract class Rachunek {
+    Rachunek()
 
+    wyborRachunku()
 }
 
 class Paragon {
