@@ -1,18 +1,18 @@
-public class DystrybutorDiesla extends DystrybutorPaliwa {
+public class DystrybutorLPG extends DystrybutorPaliwa {
 
-    public DystrybutorDiesla() {
+    public DystrybutorLPG() {
         super.iloscPaliwaDoZatankowania = 0.0;
         super.kursPaliwa = 0.0;
         super.kwotaDoZaplaty = 0.0;
         super.platnosc = null;
     }
 
-    public DystrybutorDiesla(double iloscPaliwaDoZatankowania, double kursPaliwa,
-                             double kwotaDoZaplaty, Platnosc platnosc) {
-        this.iloscPaliwaDoZatankowania = iloscPaliwaDoZatankowania;
-        this.kursPaliwa = kursPaliwa;
-        this.kwotaDoZaplaty = kwotaDoZaplaty;
-        this.platnosc = platnosc;
+    public DystrybutorLPG(double iloscPaliwaDoZatankowania, double kursPaliwa,
+                          double kwotaDoZaplaty, Platnosc platnosc) {
+        super.iloscPaliwaDoZatankowania = iloscPaliwaDoZatankowania;
+        super.kursPaliwa = kursPaliwa;
+        super.kwotaDoZaplaty = kwotaDoZaplaty;
+        super.platnosc = platnosc;
     }
 
     @Override

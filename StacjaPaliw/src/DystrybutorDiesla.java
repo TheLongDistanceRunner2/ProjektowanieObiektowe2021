@@ -1,18 +1,18 @@
-public class DystrybutorBenzyny extends DystrybutorPaliwa {
+public class DystrybutorDiesla extends DystrybutorPaliwa {
 
-    public DystrybutorBenzyny() {
+    public DystrybutorDiesla() {
         super.iloscPaliwaDoZatankowania = 0.0;
         super.kursPaliwa = 0.0;
         super.kwotaDoZaplaty = 0.0;
         super.platnosc = null;
     }
 
-    public DystrybutorBenzyny(double iloscPaliwaDoZatankowania, double kursPaliwa,
-                              double kwotaDoZaplaty, Platnosc platnosc) {
-        this.iloscPaliwaDoZatankowania = iloscPaliwaDoZatankowania;
-        this.kursPaliwa = kursPaliwa;
-        this.kwotaDoZaplaty = kwotaDoZaplaty;
-        this.platnosc = platnosc;
+    public DystrybutorDiesla(double iloscPaliwaDoZatankowania, double kursPaliwa,
+                             double kwotaDoZaplaty, Platnosc platnosc) {
+        super.iloscPaliwaDoZatankowania = iloscPaliwaDoZatankowania;
+        super.kursPaliwa = kursPaliwa;
+        super.kwotaDoZaplaty = kwotaDoZaplaty;
+        super.platnosc = platnosc;
     }
 
     @Override
@@ -24,6 +24,7 @@ public class DystrybutorBenzyny extends DystrybutorPaliwa {
     public double getIloscPaliwaDoZatankowania() {
         return super.iloscPaliwaDoZatankowania;
     }
+
     public double getKursPaliwa() {
         return super.kursPaliwa;
     }

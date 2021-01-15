@@ -1,23 +1,22 @@
-public class Paragon extends Rachunek {
-    private double kwota;
+public class Faktura extends Rachunek {
 
-    public Paragon() {
-        this.kwota = 0.0;
+    public Faktura() {
+        super.kwota = 0.0;
     }
 
-    public Paragon(double kwota) {
-        this.kwota = kwota;
+    public Faktura(double kwota) {
+        super.kwota = kwota;
     }
 
-    public void wydrukujParagon(kwota) {
-        System.out.println("Drukują paragon na kwotę: " + kwota + " zł.");
+    public void wydrukujFakture(double kwota) {
+        System.out.println("Drukują fakturę na kwotę: " + kwota + " zł.");
     }
 
     public double getKwota() {
-        return kwota;
+        return super.kwota;
     }
 
     public void setKwota(double kwota) {
-        this.kwota = kwota;
+        super.kwota = kwota;
     }
 }

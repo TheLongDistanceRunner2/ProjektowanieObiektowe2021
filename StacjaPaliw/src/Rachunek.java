@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public class Rachunek {
+public abstract class Rachunek {
+    public double kwota;
 }

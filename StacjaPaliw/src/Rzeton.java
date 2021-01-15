@@ -1,13 +1,13 @@
-public class Karta extends Platnosc {
+public class Rzeton extends Platnosc {
 
-    public Karta() {
+    public Rzeton() {
         super.klient = null;
         super.kasjer = null;
         super.kwotaDoZaplaty = 0.0;
         super.rachunek = null;
     }
 
-    public Karta(Klient klient, Kasjer kasjer, double kwotaDoZaplaty, Rachunek rachunek) {
+    public Rzeton(Klient klient, Kasjer kasjer, double kwotaDoZaplaty, Rachunek rachunek) {
         super.klient = klient;
         super.kasjer = kasjer;
         super.kwotaDoZaplaty = kwotaDoZaplaty;

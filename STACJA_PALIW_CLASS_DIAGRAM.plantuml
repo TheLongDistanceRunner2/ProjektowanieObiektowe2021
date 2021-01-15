@@ -6,6 +6,7 @@ class Klient {
     kwotaDoZaplaty
 
     Klient()
+    Klient(czyMaKarteStalegoKlienta, idKarty, kwotaDoZaplaty)
 
     getCzyMaKarteStalegoKlienta()
     getIdKarty()
@@ -19,12 +20,14 @@ abstract class DystrybutorPaliwa {
     kursPaliwa
     kwotaDoZaplaty
     iloscPaliwaDoZatankowania
+    klient
     platnosc
 
     tankuj(iloscPaliwa)
 }
 
 class DystrybutorBenzyny {
+    DystrybutorBenzyny()
     DystrybutorBenzyny(kursPaliwa)
     
     tankuj(iloscPaliwa)
@@ -38,6 +41,7 @@ class DystrybutorBenzyny {
 }
 
 class DystrybutorDiesla {
+    DystrybutorDiesla()
     DystrybutorDiesla(kursPaliwa)
     
     tankuj(iloscPaliwa)
@@ -51,6 +55,7 @@ class DystrybutorDiesla {
 }
 
 class DystrybutorLPG {
+    DystrybutorLPG()
     DystrybutorLPG(kursPaliwa)
     
     tankuj(iloscPaliwa)
@@ -66,99 +71,132 @@ class DystrybutorLPG {
 class Myjnia {
     kwotaDoZaplaty
     List<String> programy
+    klient
+    platnosc
 
     Myjnia()
+    Myjnia(kwotaDozaplaty, programy, klient, platnosc)
 
     umyj(program)
 
     getKwotaDoZaplaty()
     getProgramy()
+    getKlient()
+    getPlatnosc()
     setKwotaDoZaplaty()
     setProgramy()
+    setKlient()
+    setPlatnosc()
 }
 
 class Odkurzacz {
     kwotaDoZaplaty
+    klient
+    platnosc
 
     Odkurzacz()
+    Odkurzacz(kwotaDoZaplaty, klient, platnosc)
+
 
     odkurz(kwotaDoZaplaty)
 
     getKwotaDoZaplaty()
+    getKlient()
+    getPlatnosc()
     setKwotaDoZaplaty()
+    setKlient()
+    setPlatnosc()
 }
 
 abstract class Platnosc {
     klient
     kasjer
     kwotaDoZaplaty
-    rodzajPlatnosci
-    rodzajRachunku
-    autoryzacja
+    rachunek
 
-    zaplac()
+    zaplac(kwotaDoZaplaty)
 
     getKwotaDoZaplaty()
-    getRodzajPlatnosci()
-    getRodzajRachunku()
+    getRachunek()
+    getKlient()
+    getKasjer()
     setKwotaDoZaplaty(kwotaDoZaplaty)
-    setRozdajPlatnosci(rodzajPlatnosci)
-    setRodzajRachunku(rodzajRachunku)
+    setRachunek(rachunek)
+    setKlient()
+    setKasjer()
 }
 
 class Gotowka {
+    Gotowka()
     Gotowka(klient, kasjer, kwotaDoZaplaty, rodzajPlatnosci, rodzajRachunku)
+
+    zaplac(kwotaDoZaplaty)
 } 
 
 class Rzeton {
+    Rzeton()
     Rzeton(klient, kasjer, kwotaDoZaplaty, rodzajPlatnosci, rodzajRachunku)
+
+    zaplac(kwotaDoZaplaty)
 } 
 
 class Karta {
+    autoryzacja
+
+    Karta()
     Karta(klient, kasjer, kwotaDoZaplaty, rodzajPlatnosci, rodzajRachunku)
+
+    zaplac(kwotaDoZaplaty)
 }
 
 class Autoryzacja {
     potwierdzenie
+    bank
 
     Autoryzacja()
+    Autoryzacja(potwierdzenie, bank)
 
     autoryzuj()
 
     getPotwierdzenie()
+    getBank()
     setPotwierdzenie()
+    setBank()
 }
 
 class Potwierdzenie {
     czyPotwierdzono
 
     Potwierdzenie()
+    Potwierdzenie(czyPotwierdzono)
 
-    potwierdz()
+    wydrukujPotwierdzenie()
 
     getCzyPotwierdzono()
     setCzyPotwierdzono()
 }
 
 abstract class Rachunek {
-    Rachunek()
+    kwota
 
-    wyborRachunku()
+    Rachunek()
 }
 
 class Paragon {
-    kwota
-
+    Paragon()
     Paragon(kwota)
+
+    wydrukujParagon(kwota)
 
     getKwota()
     setKwota()
 }
 
 class Faktura {
-    kwota
-
+    Faktura()
     Faktura(kwota)
+
+    wydrukujFakture(kwota)
 
     getKwota()
     setKwota()
@@ -168,6 +206,7 @@ class Kasjer {
     id
 
     Kasjer()
+    Kasjer(id)
 
     przyjmijPlatnosc()
 
@@ -176,19 +215,20 @@ class Kasjer {
 }
 
 class Bank {
-    id
+    nazwa
 
     Bank()
+    Bank(nazwa)
 
     potwierdzPłatnosc()
 
-    getId()
-    setId(id)
+    getNazwa()
+    setNazwa(nazwa)
 }
 
-Klient -- DystrybutorPaliwa
-Klient -- Myjnia
-Klient -- Odkurzacz
+Klient --* DystrybutorPaliwa
+Klient --* Myjnia
+Klient --* Odkurzacz
 
 DystrybutorPaliwa <|-- DystrybutorBenzyny
 DystrybutorPaliwa <|-- DystrybutorDiesla
@@ -198,7 +238,7 @@ DystrybutorPaliwa *-- Platnosc
 Myjnia *-- Platnosc
 Odkurzacz *-- Platnosc
 
-Platnosc -- Kasjer
+Platnosc *-- Kasjer
 
 Platnosc <|-- Karta
 Platnosc <|-- Gotowka
@@ -211,6 +251,6 @@ Rachunek <|-- Faktura
 Karta *-- Autoryzacja
 Autoryzacja *-- Potwierdzenie
 
-Autoryzacja -- Bank
+Autoryzacja *-- Bank
 
 @enduml
