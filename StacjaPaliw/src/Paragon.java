@@ -9,7 +9,7 @@ public class Paragon extends Rachunek {
     }
 
     public void wydrukujParagon(double kwota) {
-        System.out.println("Drukują paragon na kwotę: " + kwota + " zł.");
+        System.out.println("\nDrukuję paragon na kwotę: " + kwota + " zł.");
     }
 
     public double getKwota() {

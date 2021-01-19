@@ -9,7 +9,7 @@ public class Faktura extends Rachunek {
     }
 
     public void wydrukujFakture(double kwota) {
-        System.out.println("Drukują fakturę na kwotę: " + kwota + " zł.");
+        System.out.println("\nDrukuję fakturę na kwotę: " + kwota + " zł.");
     }
 
     public double getKwota() {

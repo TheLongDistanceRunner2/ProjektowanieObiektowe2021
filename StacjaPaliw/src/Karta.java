@@ -9,12 +9,12 @@ public class Karta extends Platnosc {
         this.autoryzacja = null;
     }
 
-    public Karta(Klient klient, Kasjer kasjer, double kwotaDoZaplaty, Rachunek rachunek, Autoryzacja autoryzacja) {
+    public Karta(Klient klient, Kasjer kasjer, double kwotaDoZaplaty) {
         super.klient = klient;
         super.kasjer = kasjer;
         super.kwotaDoZaplaty = kwotaDoZaplaty;
-        super.rachunek = rachunek;
-        this.autoryzacja = autoryzacja;
+        super.rachunek = null;
+        this.autoryzacja = null;
     }
 
     @Override
