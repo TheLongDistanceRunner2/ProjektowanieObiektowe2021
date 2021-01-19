@@ -18,7 +18,7 @@ public class Myjnia {
         this.platnosc = null;
     }
 
-    public Myjnia(double kwotaDoZaplaty,Klient klient, Platnosc platnosc) {
+    public Myjnia(double kwotaDoZaplaty, Klient klient, Platnosc platnosc) {
         this.kwotaDoZaplaty = kwotaDoZaplaty;
         this.programy = new ArrayList<>();
         this.programy.add("Mycie zasadnicze");
@@ -29,8 +29,8 @@ public class Myjnia {
         this.platnosc = platnosc;
     }
 
-    public void umyj(String program) {
-        System.out.println("Wybrano program: " + program);
+    public void umyj(int program) {
+        System.out.println("Wybrano program: " + program + ". Start programu!");
     }
 
     public double getKwotaDoZaplaty() {

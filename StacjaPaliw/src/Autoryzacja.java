@@ -12,8 +12,9 @@ public class Autoryzacja {
         this.bank = bank;
     }
 
-    public boolean autoryzuj() {
-        System.out.println("Dokonuję autoryzacji...");
+    public boolean autoryzuj() throws InterruptedException {
+        System.out.println("Trwa autoryzacja...");
+        Thread.sleep(2000);
         return true;
     }
 

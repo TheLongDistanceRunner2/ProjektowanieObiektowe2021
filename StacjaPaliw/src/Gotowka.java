@@ -7,11 +7,11 @@ public class Gotowka extends Platnosc {
         super.rachunek = null;
     }
 
-    public Gotowka(Klient klient, Kasjer kasjer, double kwotaDoZaplaty, Rachunek rachunek) {
+    public Gotowka(Klient klient, Kasjer kasjer, double kwotaDoZaplaty) {
         super.klient = klient;
         super.kasjer = kasjer;
         super.kwotaDoZaplaty = kwotaDoZaplaty;
-        super.rachunek = rachunek;
+        super.rachunek = null;
     }
 
     @Override

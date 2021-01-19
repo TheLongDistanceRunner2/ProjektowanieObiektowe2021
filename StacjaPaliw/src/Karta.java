@@ -21,4 +21,12 @@ public class Karta extends Platnosc {
     public void zaplac(double kwotaDoZaplaty) {
         System.out.println("Zapłać kwotę: " + kwotaDoZaplaty + " zł.");
     }
+
+    public Autoryzacja getAutoryzacja() {
+        return autoryzacja;
+    }
+
+    public void setAutoryzacja(Autoryzacja autoryzacja) {
+        this.autoryzacja = autoryzacja;
+    }
 }

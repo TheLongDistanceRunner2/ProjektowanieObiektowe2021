@@ -7,15 +7,15 @@ public class Rzeton extends Platnosc {
         super.rachunek = null;
     }
 
-    public Rzeton(Klient klient, Kasjer kasjer, double kwotaDoZaplaty, Rachunek rachunek) {
+    public Rzeton(Klient klient, double kwotaDoZaplaty) {
         super.klient = klient;
         super.kasjer = kasjer;
         super.kwotaDoZaplaty = kwotaDoZaplaty;
-        super.rachunek = rachunek;
+        super.rachunek = null;
     }
 
     @Override
     public void zaplac(double kwotaDoZaplaty) {
-        System.out.println("Zapłać kwotę: " + kwotaDoZaplaty + " zł.");
+        System.out.println("Ilość impulsów: " + kwotaDoZaplaty);
     }
 }

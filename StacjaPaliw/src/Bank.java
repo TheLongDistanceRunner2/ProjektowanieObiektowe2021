@@ -10,7 +10,7 @@ public class Bank {
     }
 
     public boolean potwierdzPlatnosc() {
-        System.out.println("Potwierdzam płatność...");
+        System.out.println("Potwierdzono płatność");
         return true;
     }
 

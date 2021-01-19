@@ -2,7 +2,7 @@ public class Potwierdzenie {
     private boolean czyPotwierdzono;
 
     public Potwierdzenie() {
-        this.czyPotwierdzono = false;
+        this.czyPotwierdzono = true;
     }
 
     public Potwierdzenie(boolean czyPotwierdzono) {

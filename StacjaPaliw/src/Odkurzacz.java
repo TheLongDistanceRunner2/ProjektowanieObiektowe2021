@@ -16,7 +16,7 @@ public class Odkurzacz {
     }
 
     public void odkurz(double kwotaDoZaplaty) {
-        System.out.println("Odkurzanie za kwotę: " + kwotaDoZaplaty + " zł.");
+        System.out.println("Wrzucono: " + kwotaDoZaplaty + " rzetonów. Czas: " + kwotaDoZaplaty * 60 + " sekund. Start!");
     }
 
     public double getKwotaDoZaplaty() {
