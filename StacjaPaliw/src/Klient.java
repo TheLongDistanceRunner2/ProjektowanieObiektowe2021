@@ -76,30 +76,47 @@ public class Klient {
         }
     }
 
-    private static void platnoscMyjnia(Klient klient, Myjnia myjnia) {
+    private static Myjnia platnoscMyjnia(Klient klient, Myjnia myjnia) {
         Kasjer kasjer1 = new Kasjer(34);
+        Myjnia myjnia1 = new Myjnia();
 
         System.out.println("\nWybierz formę płatności: 1 - Gotówka  2 - Rzeton");
         Scanner reader = new Scanner(System.in);
         int menu3 = reader.nextInt();
 
-        // gotówka:
-        // rzeton:
         if (menu3 == 1) {
-            Gotowka gotowka1 = new Gotowka(klient, kasjer1, klient.getKwotaDoZaplaty());
-            gotowka1.getKasjer().przyjmijPlatnosc(myjnia.getKwotaDoZaplaty());
+            System.out.println("Wprowadź kwotę:");
+        }
+        else if (menu3 == 2) {
+            System.out.println("Wprowadź rzeton(y):");
+        }
+        else {
+            System.out.println("Wprowadzono niepoprawną liczbę. Koniec programu");
+            System.exit(0);
+        }
 
-            wyborRachunku(myjnia.getKwotaDoZaplaty());
+
+        reader = new Scanner(System.in);
+        int zaplacono = reader.nextInt();
+        myjnia1.setKwotaDoZaplaty(zaplacono);
+
+        // gotówka:
+        if (menu3 == 1) {
+            //Gotowka gotowka1 = new Gotowka(klient, kasjer1, klient.getKwotaDoZaplaty());
+            //gotowka1.getKasjer().przyjmijPlatnosc(myjnia1.getKwotaDoZaplaty());
+            System.out.println("Wrzucono: " + myjnia1.getKwotaDoZaplaty() + " zł.");
         }
         // Rzeton:
         else if (menu3 == 2) {
-            Rzeton rzeton1 = new Rzeton(klient, myjnia.getKwotaDoZaplaty());
-            rzeton1.zaplac(myjnia.getKwotaDoZaplaty());
+            Rzeton rzeton1 = new Rzeton(klient, myjnia1.getKwotaDoZaplaty());
+            rzeton1.zaplac(myjnia1.getKwotaDoZaplaty());
         }
         // Błąd
         else {
             System.out.println("Wprowadzono niepoprawną liczbę. Koniec programu");
         }
+
+        return myjnia1;
     }
 
     private static void wyborRachunku(double kwotaDoZaplaty) {
@@ -189,12 +206,8 @@ public class Klient {
         else if (menu1 == 2) {
             Myjnia myjnia1 = new Myjnia();
 
-            System.out.println("Wprowadź kwotę:");
-            reader = new Scanner(System.in);
-            int zaplacono = reader.nextInt();
-            myjnia1.setKwotaDoZaplaty(zaplacono);
-
-            platnoscMyjnia(klient1, myjnia1);
+            Myjnia tmp = platnoscMyjnia(klient1, myjnia1);
+            myjnia1.setKwotaDoZaplaty(tmp.getKwotaDoZaplaty());
 
             System.out.println("\nWybierz program:  1 - " + myjnia1.getProgramy().get(0)
                     + "  2 - " + myjnia1.getProgramy().get(1)
