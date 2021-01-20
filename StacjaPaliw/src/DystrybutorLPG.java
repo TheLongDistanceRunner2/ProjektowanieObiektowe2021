@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class DystrybutorLPG extends DystrybutorPaliwa {
 
     public DystrybutorLPG() {
@@ -16,7 +18,9 @@ public class DystrybutorLPG extends DystrybutorPaliwa {
     }
 
     @Override
-    public void tankuj(double iloscPaliwa) {
+    public void tankuj(double iloscPaliwa) throws IOException, InterruptedException {
+        super.progressBar(100);
+
         this.iloscPaliwaDoZatankowania = iloscPaliwa;
         this.kwotaDoZaplaty = this.iloscPaliwaDoZatankowania * this.kursPaliwa;
     }
@@ -24,6 +28,7 @@ public class DystrybutorLPG extends DystrybutorPaliwa {
     public double getIloscPaliwaDoZatankowania() {
         return super.iloscPaliwaDoZatankowania;
     }
+
     public double getKursPaliwa() {
         return super.kursPaliwa;
     }
