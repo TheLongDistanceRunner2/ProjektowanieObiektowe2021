@@ -4,6 +4,9 @@ actor Klient
 note left DystrybutorPaliwa: Scenariusz korzystania z Dystrybutora Paliwa
 
 activate DystrybutorPaliwa
+participant Myjnia
+participant Odkurzacz
+
 DystrybutorPaliwa -> Platnosc : tankuj()
 
     activate Platnosc

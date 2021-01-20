@@ -130,7 +130,6 @@ public class Klient {
 
         int menu1 = 0;
         int menu2 = 0;
-        int menu3 = 0;
         double iloscPaliwa = 0.0;
 
         System.out.println("\nWitamy na stacji paliwowej! Wybierz czynność, którą chcesz wykonać: " +
