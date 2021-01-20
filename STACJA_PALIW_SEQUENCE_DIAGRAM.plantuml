@@ -20,8 +20,9 @@ deactivate DystrybutorPaliwa
 deactivate Rachunek
 deactivate Platnosc
 
+note left DystrybutorPaliwa: Scenariusz korzystania z Myjni
 activate Myjnia
-Myjnia -> Platnosc : tankuj()
+Myjnia -> Platnosc : umyj()
 
     activate Platnosc
         Platnosc -> Rachunek : zaplac()
@@ -37,8 +38,9 @@ deactivate Myjnia
 deactivate Rachunek
 deactivate Platnosc
 
+note left DystrybutorPaliwa: Scenariusz korzystania z Odkurzacza
 activate Odkurzacz
-Odkurzacz -> Platnosc : tankuj()
+Odkurzacz -> Platnosc : odkurz()
 
     activate Platnosc
         Platnosc -> Rachunek : zaplac()
